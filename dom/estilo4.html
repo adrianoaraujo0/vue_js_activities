@@ -1,0 +1,56 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+
+        .caixas{
+            display: flex;
+            justify-content: space-around;
+        }
+        .demo{
+            width: 100;
+            height: 100;
+            background-color: gray;
+        }
+
+        .c1{
+            background-color: red;
+            }
+            
+        .c2{
+            background-color: green;
+            
+        }
+        
+        .c3{
+            background-color: blue;
+        }
+
+    </style>
+
+
+    <div id="app">
+        <div class="caixas">
+            <div class="demo" :class="estilo1" @click="classe1 = !classe1"></div>
+            <div class="demo"></div>
+            <div class="demo"></div>
+        </div>
+
+    </div>
+
+
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+            classe1: false
+        },
+        computed:{
+            estilo1(){
+              return {
+                c1: this.classe1,
+                c2: !this.classe1
+              }
+            }
+        }
+    })
+</script>
