@@ -26,6 +26,7 @@
             background-color: blue;
         }
         .girar{
+            transform: rotate(45deg);
         }
 
     </style>
@@ -35,8 +36,8 @@
 
         <div class="caixas">
             <div class="demo" :class="estilo1" @click="classe1 = !classe1"></div>
-            <div class="demo" :class="classeCSS"></div>
-            <div class="demo"></div>
+            <div class="demo" :class="[classeCSS, {'girar': aplicarGirar}]"></div>
+            <div class="demo" :class="estilo1"></div>
         </div>
         <hr>
         <input type="text" v-model="classeCSS">
@@ -49,7 +50,8 @@
         el:'#app',
         data: {
             classe1: false,
-            classeCSS: 'c1'
+            classeCSS: 'c1',
+            aplicarGirar: true
         },
         computed:{
             estilo1(){

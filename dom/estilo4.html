@@ -30,8 +30,8 @@
 
     <div id="app">
         <div class="caixas">
-            <div class="demo" :class="estilo1" @click="classe1 = !classe1"></div>
-            <div class="demo"></div>
+            <div class="demo" :style="{'backgroundColor':cor}"></div>
+            <div class="demo" :style="[meuEstilo, {width: 200}]"></div>
             <div class="demo"></div>
         </div>
 
@@ -42,15 +42,15 @@
     new Vue({
         el:'#app',
         data: {
-            classe1: false
+            cor: "red",
         },
         computed:{
-            estilo1(){
-              return {
-                c1: this.classe1,
-                c2: !this.classe1
-              }
+           meuEstilo(){
+            return {
+                backgroundColor: this.cor,
+                height: 20
             }
+           }
         }
     })
 </script>
