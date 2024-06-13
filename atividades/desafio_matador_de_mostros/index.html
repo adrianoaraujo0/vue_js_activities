@@ -1,0 +1,48 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="style.css">
+
+
+    <div id="app">
+        <div class="card">
+            <div class="column">
+                <p class="title">Jogador</p>
+                <div class="barra-progresso">
+                    <div :style="[progresso, {'width': jogadorProgresso, 'background-color': progressoCor(jogadorProgresso)}]"></div>
+                </div>
+            <p class="pontuacao-size"> {{ porcentagemDaBarraDeProgresso(jogadorProgresso) }}%</p>
+            </div>
+            
+            <div class="column">
+                <p class="title">Monstro</p>
+                <div class="barra-progresso" >
+                    <div :style="[progresso, {'width': monstroProgresso, 'background-color': progressoCor(monstroProgresso)}]"></div>
+                </div>
+                <p class="pontuacao-size"> {{ porcentagemDaBarraDeProgresso(monstroProgresso) }}%</p>
+            </div>
+        </div>
+
+        <div class="card row">
+            <div v-if="!iniciarGame" @click="iniciarGame = !iniciarGame" class="novo-jogo-btn"> INICIAR NOVO JOGO </div>
+            <div v-else-if="vencerJogo != null"> 
+                <p v-if="vencerJogo"> VOCÊ VENCEU :)</p>
+                <p v-else> VOCÊ PERDEU :(</p>
+            </div>
+            <div v-else>
+                <button @click="ataque()" :style="[stylebuttons, {'background-color': 'red', 'color': 'white'}]"> ATAQUE </button>
+                <button @click="ataqueEspecial()" :style="[stylebuttons, {'background-color': 'yellow'}]"> ATAQUE ESPECIAL</button>
+                <button @click="curar()" :style="[stylebuttons, {'background-color': 'green', 'color': 'white'}]"> CURAR </button>
+                <button @click="desistir()" :style="[stylebuttons, {'background-color': 'gray'}]"> DESISTIR </button>
+            </div>
+        </div>
+
+        <div v-if="log.length > 0" class="card">
+            <ul :style="{'width': '100%'}">
+                <li v-for="(dado, index) in log" :style="{'padding': '0px', 'margin':'0px'}">
+                    <p :style="[styleLog, {'background-color': index % 2 == 0 ? 'blue' : 'red'}]"> {{ dado }} </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+<script src="app.js"></script>

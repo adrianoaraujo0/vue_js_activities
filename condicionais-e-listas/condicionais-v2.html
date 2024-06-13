@@ -1,0 +1,29 @@
+<meta charset="UTF8">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <div id="app">
+        <template v-if="logado">
+            <p > {{ nome }}</p>
+            <p> PERFIL: ADMIN</p>
+        </template>
+        <p v-else-if="anonimo"> Sem usuario</p>
+        <p v-else> ERRO </p>
+        <button @click="logado = !logado"> {{ titulo }}</button> 
+        <input type="checkbox" @click="anonimo = !anonimo">
+    </div>
+
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            nome:"Maria",
+            logado: false,
+            anonimo: false,
+        },
+        computed:{
+            titulo(){
+                return this.logado ? "Sair" : "Entrar"
+            }
+        }
+    })
+</script>
