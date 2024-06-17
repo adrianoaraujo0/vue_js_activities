@@ -1,0 +1,19 @@
+.card{
+    height: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    margin-left: 10;
+}
+
+
+ul{
+    list-style: none;
+}
+
+p{
+    display: inline;
+}

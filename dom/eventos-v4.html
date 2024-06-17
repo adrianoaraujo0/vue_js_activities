@@ -1,0 +1,38 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+
+    <h1> {{ soma }}</h1>
+    <p v-on:mousemove="somar"> 
+        {{ x }} e {{ y }}
+
+        <span v-on:mousemove.stop>
+             PARAR AQUI !!!
+        </span>
+        <a v-on:click="naoNavegar" href="http://Google.com"> google</a>
+    </p>
+
+
+</div>
+
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+          soma: 0,
+          x: 0,
+          y: 0
+        },
+        methods:{
+            somar(event){
+                this.x = event.clientX
+                this.y = event.clientY
+                this.soma = this.x + this.y
+            },
+            naoNavegar(event){
+                event.preventDefault()
+            }
+        }
+    })
+
+</script>

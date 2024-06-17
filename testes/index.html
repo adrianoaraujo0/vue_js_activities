@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="estilo.css">
+
+    <div id="app">
+        <div class=card>
+            <input type="text" v-model="item">
+            <button @click="items.push(item)"> Adicionar</button>
+        </div>
+
+        <div>
+            <p v-if="items.length == 3"> Lista pequena </p>
+            <p v-else-if="items.length >= 5"> Lista media </p>
+            <p v-else>  </p>
+
+            <ul>
+                <li v-for="(item, index) in items">
+                    <p> {{ item }}</p>
+                    <button @click="items.splice(index, 1)"> Excluir </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<script src="app.js"></script>
+
+
