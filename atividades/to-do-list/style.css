@@ -1,0 +1,27 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .rectangle {
+    width: 350px;
+    height: 500px;
+    background-color: rgba(232, 230, 221, 0.851);
+    margin-top: 50px;
+    border: 1px solid gray;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .inputstyle{
+    justify-content: center;
+  }
+
+ 
